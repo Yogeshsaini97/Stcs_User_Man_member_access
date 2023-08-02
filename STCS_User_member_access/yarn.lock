@@ -519,6 +519,11 @@ dom-helpers@^5.0.1:
     "@babel/runtime" "^7.8.7"
     csstype "^3.0.2"
 
+dotenv@^16.3.1:
+  version "16.3.1"
+  resolved "https://registry.npmjs.org/dotenv/-/dotenv-16.3.1.tgz"
+  integrity sha512-IPzF4w4/Rd94bA9imS68tZBaYyBWSCE47V1RGuMrB94iyTOIEwRmVL2x/4An+6mETpLrKJ5hQkB8W4kFAadeIQ==
+
 error-ex@^1.3.1:
   version "1.3.2"
   resolved "https://registry.npmjs.org/error-ex/-/error-ex-1.3.2.tgz"
@@ -841,7 +846,7 @@ source-map@^0.5.7:
   resolved "https://registry.npmjs.org/source-map/-/source-map-0.5.7.tgz"
   integrity sha512-LbrmJOMUSdEVxIKvdcJzQC+nQhe8FUZQTXQy6+I75skNgn3OoQ0DZA8YnFa7gp8tqtL3KPf1kmo0R5DoApeSGQ==
 
-"stcs-project@file:C:\\GithhubstcsDevelopment\\GIThubStcs\\Stcs_Project\\STCS_Project_Management\\STCS_Vue_main\\stcs-project":
+"stcs-project@file:C:\\usermemberaccess\\Stcs_User_Man_member_access\\STCS_User_member_access\\STCS_Vue_main\\stcs-project":
   version "0.0.0"
   resolved "file:STCS_Vue_main/stcs-project"
   dependencies:
@@ -851,6 +856,7 @@ source-map@^0.5.7:
     "@mui/material" "^5.13.6"
     axios "^1.4.0"
     bootstrap "^4.6.2"
+    export-from-json "^1.7.3"
     jquery "^3.7.0"
     vue "^3.3.4"
     vue-custom-element "^3.3.0"

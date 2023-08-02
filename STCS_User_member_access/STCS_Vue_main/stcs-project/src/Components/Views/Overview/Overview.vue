@@ -9,105 +9,240 @@ const no_of_Risks = inject("no_of_Risks");
 
 
 <template>
-  <div class="row">
-    <div class="col-md-3 border-right">
-      <h2 class="my-4 line-height-15">Project<br />Overview</h2>
-      <p class="text-default font-12">Project description</p>
-      <p class="font-12">{{ ProjectGetOneData.projectOverview ?
-        ProjectGetOneData.projectOverview : "NO data found" }}.</p>
+  <div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade show active" id="one" role="tabpanel" aria-labelledby="one-tab">
+      <div class="row">
+        <div class="col-md-3 border-right">
+          <h2 class="mt-4 line-height-15">Member<br />Overview</h2>
+          <div class="mt-4">
+            <p class="mb-1 text-default">Created on</p>
+            <p class="mb-0">Mar 12th, 2023</p>
+            <p>12.35 pm</p>
+          </div>
+        </div>
+        <div class="col-md-9">
+          <div class="custom-form mt-3">
+            <div class="row">
+              <div class="col-12 col-md-6">
+                <div class="form-group mb-4">
+                  <label>Full name</label>
+                  <input type="text" class="form-control" placeholder="Enter Full name" value="David Elson" />
+                </div>
+              </div>
+              <div class="col-12 col-md-6">
+                <div class="form-group mb-4">
+                  <label>Email address</label>
+                  <input type="email" class="form-control" placeholder="Enter Email address"
+                    value="muhammad.asad@moh.ksa.com" />
+                </div>
+              </div>
+              <div class="col-12 col-md-6">
+                <div class="form-group mb-4">
+                  <label>Phone</label>
+                  <input type="text" class="form-control" placeholder="Enter Phone" value="+966 7857126532" />
+                </div>
+              </div>
+              <div class="col-12 col-md-6"></div>
+              <div class="col-12 col-md-6">
+                <div class="form-group mb-4">
+                  <label>Government / Entity</label>
+                  <input type="text" class="form-control" placeholder="Government" />
+                </div>
+              </div>
+              <div class="col-12 col-md-6">
+                <div class="form-group mb-4">
+                  <label>Department</label>
+                  <input type="text" class="form-control" placeholder="Ministry of Health" />
+                </div>
+              </div>
+              <div class="col-12 col-md-6">
+                <div class="form-group">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="gridCheck">
+                    <label class="form-check-label text-dark font-10 ml-3" for="gridCheck">
+                      Dolor ut ab sit. Ut vero maiores autem culpa corrupti reiciendis aspernatur. Sint blanditiis
+                      dignissimos ut non enim error. Dolor ut ab sit.
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-md-12">
+                <div class="mt-md-100 mb-4 d-flex">
+                  <button type="button" class="btn btn-default px-40">Assign role & privileges</button>
+                  <button type="button" class="btn btn-light px-40 ml-3">Reject member access</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="col-md-9">
-      <div class="mt-3">
-        <table class="table table-sm table-borderless">
-          <thead>
-            <tr>
-              <th>Program title & ID</th>
-              <th>Project title & ID</th>
-              <th>Created on</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Installation & device with contract<br /><span class="font-weight-400">STCS - 000938</span>
-              </td>
-              <td>{{ ProjectGetOneData.projectTitle ?
-                ProjectGetOneData.projectTitle : "NO data found" }}<br /><span class="font-weight-400">STCS - {{
-    ProjectGetOneData.id ?
-    ProjectGetOneData.id : "NO data found" }}</span>
-              </td>
-              <td>{{ ProjectGetOneData.startedDate ?
-                ChangeDateFormat(ProjectGetOneData.startedDate) : "NO data found" }}<br /><span
-                  class="font-weight-400">12.35 pm</span></td>
-            </tr>
-          </tbody>
-        </table>
-        <hr />
-        <div class="row mt-4">
-          <div class="col-md-4">
-            <div class="card grey mnh-140p mb-40">
-              <div class="card-body">
-                <div class="row">
-                  <div class="col-md-8">
-                    <p class="mb-0 font-40 text-default">18%</p>
-                    <p class="mb-0">Completed</p>
-                    <p class="mb-0 font-8 opacity-60">Overall health</p>
-                  </div>
-                  <div class="col-md-4">
-                    <span class="badge rounded-pill bg-light-danger float-end font-10"><i
-                        class='fa-solid fa-circle font-5 align-middle mr-2'></i>Delayed</span>
-                  </div>
+    <div class="tab-pane fade" id="two" role="tabpanel" aria-labelledby="two-tab">
+      <div class="row">
+        <div class="col-md-3 border-right">
+          <h2 class="mt-4 line-height-15">Roles &<br />privileges</h2>
+          <div class="mt-4">
+            <p class="mb-1 text-default">Created on</p>
+            <p class="mb-0">Mar 12th, 2023</p>
+            <p>12.35 pm</p>
+          </div>
+        </div>
+        <div class="col-md-9">
+          <div class="custom-form mt-3">
+            <div class="row">
+              <div class="col-12 col-md-6">
+                <div class="form-group mb-4">
+                  <label>Assign role</label>
+                  <select class="form-control">
+                    <option>Project manager</option>
+                  </select>
                 </div>
-                <div>
-                  <p class="mb-0 text-right font-10">18%</p>
-                  <div class="progress h-5p">
-                    <div class="progress-bar bg-grey" role="progressbar" aria-valuenow="18" style="width: 18%"></div>
-                  </div>
+                <h4 class="text-default mt-4 mb-3">Assign projects</h4>
+                <div class="form-group mb-4">
+                  <label>Search projects</label>
+                  <input type="search" class="form-control" value="Installation" placeholder="Project code / name" />
+                </div>
+                <div class="d-flex mb-3">
+                  <button type="button" class="btn btn-light border-light-red rounded-15 p-3 mr-3"><img src="../assets/images/icon-trash.svg" alt="img" /></button>
+                  <p class="mb-0 mt-1">Installation & device with contract<br /><span class="text-grey">STCS - 000938</span></p>
+                </div>
+                <div class="d-flex mb-3">
+                  <button type="button" class="btn btn-light border-light-red rounded-15 p-3 mr-3"><img src="../assets/images/icon-trash.svg" alt="img" /></button>
+                  <p class="mb-0 mt-1">Installation & device with contract<br /><span class="text-grey">STCS - 000938</span></p>
+                </div>
+                <div class="d-flex mb-3">
+                  <button type="button" class="btn btn-light border-light-red rounded-15 p-3 mr-3"><img src="../assets/images/icon-trash.svg" alt="img" /></button>
+                  <p class="mb-0 mt-1">Installation & device with contract<br /><span class="text-grey">STCS - 000938</span></p>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card grey mnh-140p mb-40">
-              <div class="card-body">
-                <p class="mb-0 font-40 text-default">2<span class="font-20">/8</span></p>
-                <p class="mb-0">Current milestone<img src="http://localhost:8080/documents/d/guest/arrow-up" class="ml-1 w-15p"
-                    alt="img" /></p>
-                <p class="mb-0 font-8 opacity-60">Click to view more</p>
+            <div class="row">
+              <div class="col-12 col-md-12">
+                <h4 class="text-default mt-4 mb-3">This member can,</h4>
               </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card grey mnh-140p mb-40">
-              <div class="card-body">
-                <p class="font-10 text-default">Upcoming milestones</p>
-                <div class="d-flex">
-                  <div class="rectangle-green">
-                    <p class="mb-0 line-height-10 font-16">23</p>
-                    <p class="mb-0 line-height-10 font-10">apr</p>
+              <div class="col-12 col-md-6">
+                <div class="form-group">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="gridCheck1" checked>
+                    <label class="form-check-label text-dark font-10 ml-3" for="gridCheck1">
+                      Projects<br /><span class="text-grey">Dolor ut ab sit. Ut vero maiores autem</span>
+                    </label>
                   </div>
-                  <div class="ml-2 mt-2">
-                    <p class="mb-0 line-height-10 font-12">Milestone 3</p>
-                    <p class="mb-0 font-10">15 days left</p>
+                </div>
+              </div>
+              <div class="col-12 col-md-6">
+                <div class="form-group">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="gridCheck2" checked>
+                    <label class="form-check-label text-dark font-10 ml-3" for="gridCheck2">
+                      Risks & issues<br /><span class="text-grey">Dolor ut ab sit. Ut vero maiores autem</span>
+                    </label>
                   </div>
+                </div>
+              </div>
+              <div class="col-12 col-md-6">
+                <div class="form-group">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="gridCheck3">
+                    <label class="form-check-label text-dark font-10 ml-3" for="gridCheck3">
+                      Milestones<br /><span class="text-grey">Dolor ut ab sit. Ut vero maiores autem</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-md-6">
+                <div class="form-group">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="gridCheck4">
+                    <label class="form-check-label text-dark font-10 ml-3" for="gridCheck4">
+                      Stakeholders<br /><span class="text-grey">Dolor ut ab sit. Ut vero maiores autem</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-md-6">
+                <div class="form-group">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="gridCheck5">
+                    <label class="form-check-label text-dark font-10 ml-3" for="gridCheck5">
+                      Tasks<br /><span class="text-grey">Dolor ut ab sit. Ut vero maiores autem</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-md-6">
+                <div class="form-group">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="gridCheck6">
+                    <label class="form-check-label text-dark font-10 ml-3" for="gridCheck6">
+                      Approvals<br /><span class="text-grey">Dolor ut ab sit. Ut vero maiores autem</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-md-6">
+                <div class="form-group">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="gridCheck7">
+                    <label class="form-check-label text-dark font-10 ml-3" for="gridCheck7">
+                      Marketplace<br /><span class="text-grey">Dolor ut ab sit. Ut vero maiores autem</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-md-6">
+                <div class="form-group">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="gridCheck8">
+                    <label class="form-check-label text-dark font-10 ml-3" for="gridCheck8">
+                      Invoices<br /><span class="text-grey">Dolor ut ab sit. Ut vero maiores autem</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-md-12">
+                <div class="my-4">
+                  <button type="button" class="btn btn-default px-40">Save & proceed</button>
+                  <button type="button" class="btn btn-light px-40 ml-3">Reject member access</button>
                 </div>
               </div>
             </div>
           </div>
-          <div class="col-md-4">
-            <div class="card grey mnh-140p mb-40">
-              <div class="card-body">
-                <p class="mb-0 font-40 text-default">{{ no_of_Issues }}</p>
-                <p class="mb-0">Issues<img src="http://localhost:8080/documents/d/guest/arrow-up" class="ml-1 w-15p" alt="img" /></p>
-                <p class="mb-0 font-8 opacity-60">You have <span class="text-danger">12 severe</span> issues</p>
-              </div>
-            </div>
+        </div>
+      </div>
+    </div>
+    <div class="tab-pane fade" id="three" role="tabpanel" aria-labelledby="three-tab">
+      <div class="row">
+        <div class="col-md-3 border-right mnh-375p">
+          <h2 class="mt-4 line-height-15">Channel &<br />frequency</h2>
+          <div class="mt-4">
+            <p class="mb-1 text-default">Created on</p>
+            <p class="mb-0">Mar 12th, 2023</p>
+            <p>12.35 pm</p>
           </div>
-          <div class="col-md-4">
-            <div class="card grey mnh-140p mb-40">
-              <div class="card-body">
-                <p class="mb-0 font-40 text-default">{{ no_of_Risks }}</p>
-                <p class="mb-0">Risks<img src="http://localhost:8080/documents/d/guest/arrow-up" class="ml-1 w-15p" alt="img" /></p>
-                <p class="mb-0 font-8 opacity-60">You have <span class="text-danger">3 extreme</span> risks</p>
+        </div>
+        <div class="col-md-9">
+          <div class="custom-form mt-3">
+            <div class="row">
+              <div class="col-12 col-md-6">
+                <div class="form-group mb-4">
+                  <label>Channel</label>
+                  <select class="form-control">
+                    <option>Select</option>
+                  </select>
+                </div>
+                <div class="form-group mb-4">
+                  <label>Frequency</label>
+                  <select class="form-control">
+                    <option>Select</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-12 col-md-12">
+                <div class="mt-200">
+                  <button type="button" class="btn btn-default px-40">Grand member access</button>
+                  <button type="button" class="btn btn-light px-40 ml-3">Reject member access</button>
+                </div>
               </div>
             </div>
           </div>

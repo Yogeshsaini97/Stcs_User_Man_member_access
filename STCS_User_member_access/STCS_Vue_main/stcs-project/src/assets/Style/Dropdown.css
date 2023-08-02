@@ -3,6 +3,14 @@
   {
 
   }
+
+  .custom-form .form-group label {
+    margin-bottom: 0px;
+    color: #4F008C;
+    font-size: 11px;
+}
+
+
   
 
 

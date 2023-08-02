@@ -4,19 +4,11 @@ import Tabs from "../Tabs/Tabs.vue"
 import Tab from "../Tabs/Tab.vue"
 import Overview from "./Overview/Overview.vue"
 import { fetchData } from '../../Utils/Utils';
-import RiskIssues from './RiskandIssues/Risk&Issues.vue';
-import Schedule from './Schedule/Schedule.vue';
-import ProjectDocuments from './Documents/ProjectDocuments.ce.vue';
-import ProjectApproval from './Approvals/ProjectApproval.ce.vue';
-import ProjectInvoice from './Invoices/ProjectInvoice.ce.vue';
-import Stakeholders from './Stakeholders/Stakeholders.ce.vue';
+
 import Milestone from './Milestones/Milestone.ce.vue';
 
 
 const ProjectApiId = inject('ProjectApiId');
-
-
-
 const ProjectGetOneData = ref(null);
 const api1Data = ref(null);
 const api2Data = ref(null);
@@ -28,8 +20,8 @@ const no_of_Issues = ref(0);
 const fetchMultipleApi = async () => {
   try {
     const [response1, response2, response3, response4] = await Promise.all([
-      fetchData(`http://localhost:8080/o/c/projectts/${ProjectApiId.value}?p_auth=${Liferay.authToken}`),
-      fetchData(`http://localhost:8080/o/c/risksandissues/?p_auth=${Liferay.authToken}&filter=r_withRiskAndIssues_c_projecttId eq '${ProjectApiId.value}'`),
+      fetchData(`${import.meta.env.VUE_APP_ROOT_API}/projectts/${ProjectApiId.value}?p_auth=${Liferay.authToken}`),
+      fetchData(`${import.meta.env.VUE_APP_ROOT_API}/risksandissues/?p_auth=${Liferay.authToken}&filter=r_withRiskAndIssues_c_projecttId eq '${ProjectApiId.value}'`),
       // fetch('api3-url'),
       // fetch('api4-url')
     ]);
@@ -55,7 +47,7 @@ const fetchMultipleApi = async () => {
 
 onMounted(async () => {
   await fetchMultipleApi();
-  await find_num_of_risksnissues(api2Data.value)
+
 })
 
 
@@ -63,25 +55,9 @@ provide("ProjectGetOneData", ProjectGetOneData)
 provide("api2Data", api2Data)
 // provide("ProjectGetOneData", ProjectGetOneData)
 
-const find_num_of_risksnissues = (apiGot) => {
-  console.log(apiGot)
-  apiGot.items.forEach(element => {
-
-    if (element.type == "Issue") {
-      no_of_Issues.value++;
-    }
-    else if (element.type == "Risk") {
-      no_of_Risks.value++;
-    }
 
 
-  });
 
-}
-
-
-provide("no_of_Issues", no_of_Issues);
-provide("no_of_Risks", no_of_Risks);
 
 </script>
 
@@ -93,21 +69,21 @@ provide("no_of_Risks", no_of_Risks);
 
     <Tab active="true" id="Overview" title="Overview">
 
-      <div v-if="ProjectGetOneData">
+    
         <Overview />
-      </div>
+     
     </Tab>
-    <Tab title="Milestones" id="Milestones">
-      <div v-if="ProjectGetOneData">
+    <Tab title="Role & Privileges" id="Role & Privileges">
+    
         <Milestone />
-      </div>
+ 
     </Tab>
-    <Tab title="Risk & Issues" id="Risk_&_Issues">
+    <!-- <Tab title="Risk & Issues" id="Risk_&_Issues">
       <div v-if="ProjectGetOneData">
         <RiskIssues />
       </div>
-    </Tab>
-    <Tab title="Documents">
+    </Tab> -->
+    <!-- <Tab title="Documents">
       <div v-if="ProjectGetOneData">
         <ProjectDocuments/>
       </div>
@@ -135,7 +111,7 @@ provide("no_of_Risks", no_of_Risks);
         <Schedule/>
       </div>
      
-    </Tab>
+    </Tab> -->
 
 
 

@@ -7,7 +7,7 @@ import ProjectListTable from "../Views/ProjectListTable.ce.vue";
 import RiskIssuesListTable from "../Views/RiskandIssues/RiskIssuesListTable.ce.vue";
 import ScheduleListTable from "../Views/Schedule/ScheduleListTable.ce.vue";
 import ProjectDocumentsListTable from "../Views/Documents/ProjectDocumentsListTable.ce.vue";
-import ProjectApprovalListTable from "../Views/Approvals/ProjectApprovalListTable.ce.vue";
+import MemberAccessListTable from "../Views/MemberAccess/MemberAccessListTable.ce.vue";
 import ProjectInvoiceListTable from "../Views/Invoices/ProjectInvoiceListTable.ce.vue";
 
 import StakeholdersListTable from "../Views/Stakeholders/StakeholdersListTable.ce.vue";
@@ -184,12 +184,12 @@ props: {
       openMilestoneList,
       hostUrl,
       ProjectDocumentsListTable,
-      ProjectApprovalListTable,
+      MemberAccessListTable,
       ProjectInvoiceListTable,
       MilestonesListTable
     };
   },
-  components: { HeaderList, ProjectListTable, RiskIssuesListTable, ScheduleListTable, ProjectDocumentsListTable, ProjectApprovalListTable, ProjectInvoiceListTable, StakeholdersListTable, MilestonesListTable }
+  components: { HeaderList, ProjectListTable, RiskIssuesListTable, ScheduleListTable, ProjectDocumentsListTable, MemberAccessListTable, ProjectInvoiceListTable, StakeholdersListTable, MilestonesListTable }
 };
 </script>
 
@@ -222,8 +222,8 @@ props: {
                   <div v-if="openDocumentList">
                     <ProjectDocumentsListTable :hostUrl="hostUrl" />
                   </div>
-                  <div v-if="openApprovalList">
-                    <ProjectApprovalListTable :hostUrl="hostUrl" />
+                  <div >
+                    <MemberAccessListTable :hostUrl="hostUrl" />
                   </div>
                   <div v-if="openInvoiceList">
                     <ProjectInvoiceListTable :hostUrl="hostUrl" />

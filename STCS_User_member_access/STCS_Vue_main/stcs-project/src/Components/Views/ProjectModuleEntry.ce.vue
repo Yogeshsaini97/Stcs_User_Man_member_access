@@ -1,7 +1,7 @@
 <template>
   <div>
     <HeaderList />
-    <component :is="CurrentPage.fileName" :url="projectHostUrl" />
+    <component :is="CurrentPage.fileName"  />
   </div>
 </template>
 
@@ -9,18 +9,25 @@
 import { provide, reactive, ref } from 'vue';
 import ListPage from '../Global/ListPage.ce.vue';
 import HeaderList from '../Global/HeaderList.ce.vue';
+import MemberAccess from './MemberAccess/MemberAccess.vue';
+console.log("check")
+
+const hy=import.meta.env.VITE_MY_VARIABLE;
+console.log(import.meta.env.VITE_MY_VARIABLE)
+
+console.log(hy)
 
 const datacheck=reactive([])
 provide('datacheck', datacheck);
 
 console.log(datacheck)
 
-const projectHostUrl = `http://localhost:8080/o/c/projectts/?p_auth=${Liferay.authToken}`;
+const projectHostUrl = `${import.meta.env.VUE_APP_ROOT_API}/projectts/?p_auth=${Liferay.authToken}`;
 
 
 ///////////////
 
-const CurrentPage = reactive({ fileName: ListPage, key: "ListPage" });
+const CurrentPage = reactive({ fileName: MemberAccess, key: "MemberAccess" });
 provide('CurrentPage', CurrentPage);
 
 //////////////
@@ -44,8 +51,7 @@ provide('ProcessBarReactive', ProcessBarReactive);
 
 ///////////////code for breadcrumbs setting start here /////////////////////
 const breadcrumbs = ref([
-  { label: 'Programs' },
-  { label: 'projects' }
+  { label: 'Approvals' }
 ]);
 
 provide('breadcrumbs', breadcrumbs);
@@ -60,13 +66,13 @@ provide('breadcrumbs', breadcrumbs);
 const BackButton = () => {
   console.log("CurrentPage.key.back", CurrentPage.key)
   // ChangePage({fileName:ListPage,key:'ListPage'})
-  if (CurrentPage.key === "ListPage") {
+  if (CurrentPage.key === "MemberAccess") {
 
     console.log("hey buddy")
     //kept for further chnages
   }
   else if (CurrentPage.key === "ProjectTabs") {
-    ChangePage({ fileName: ListPage, key: 'ListPage' })
+    ChangePage({ fileName: MemberAccess, key: 'MemberAccess' })
     console.log(breadcrumbs.value)
     breadcrumbs.value.pop();
 
@@ -85,16 +91,9 @@ const ChangePage = (PageToRender) => {
   CurrentPage.fileName = PageToRender.fileName;
   CurrentPage.key = PageToRender.key;
   ///////////////setting of ProcessBarReactive start here/////////
-  if (CurrentPage.key == "ProjectTabs") {
-    ProcessBarReactive.actualValue = PageToRender?.item.progressActual;
-    ProcessBarReactive.plannedValue = PageToRender?.item.progressPlanned;
-    ProcessBarReactive.display = true;
-  }
+
   ///////////////setting of ProcessBarReactive end here/////////
-  //////////////breadcrumbs changes start here//////////
-  if (CurrentPage.key == "ListPage") {
-    ProcessBarReactive.display = false;
-  }
+
   //////////////breadcrumbs changes end here//////////
 }
 
@@ -102,18 +101,6 @@ provide('ChangePage', ChangePage);
 
 
 ///
-
-
-const check=()=>
-{
-
-console.log(datacheck)
-
-}
-
-
-
-
 
 
 
