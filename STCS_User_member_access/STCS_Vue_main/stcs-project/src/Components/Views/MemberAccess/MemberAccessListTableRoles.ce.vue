@@ -4,6 +4,7 @@ import { inject, provide, ref } from 'vue';
 import { ChangeDateFormat,fetchData } from '../../../Utils/Utils';
 import DownloadToExcel from '../../Global/DownloadToExcel.ce.vue';
 import ProjectTabs from '../ProjectTabs.ce.vue';
+import UserAccountFetch from './UserAccountFetch.ce.vue';
 
 const props = defineProps({
   hostUrl: { type: Object, required: true }
@@ -45,7 +46,7 @@ const selectedOption = ref(dropdownOptions[0]);
     }
 
 
-
+console.log(userList)
 
 </script>
 
@@ -80,7 +81,7 @@ right:20px;"/>
           <th></th>
         </tr>
       </thead>
-      <tbody>
+     
         <!-- <tbody v-if="userList.length > 0"> -->
           <!-- <tr  v-for="item in userList" :key="item.id">
             <td><span class="badge rounded-pill bg-light-success text-dark font-10"><i class='fa-solid fa-circle font-5 align-middle mr-2'></i>{{ item.approvalStatus }}</span></td>
@@ -90,13 +91,14 @@ right:20px;"/>
             <td>{{ ChangeDateFormat(item.dateCreated) }}</td>
             <td><a href="javascript:void(0)"><img src="http://localhost:8080/documents/d/guest/arrow-up" alt="img" /></a></td>
           </tr> -->
+          <tbody  v-if="userList.length > 0">
+          <tr v-for="item in userList" :key="item.id">
+            <td><span class="badge rounded-pill bg-light text-dark font-10"><i class='fa-solid fa-circle font-5 align-middle mr-2'></i>{{ item.completed===true?'Approved':'Pending'}}</span></td>
+            <td>{{ item.assetTitle? item.assetTitle:'not found'}}</td>
+            <UserAccountFetch :userAccntid="item.id"  urlName="assignedtomyroles" />
 
-          <tr>
-            <td><span class="badge rounded-pill bg-light text-dark font-10"><i class='fa-solid fa-circle font-5 align-middle mr-2'></i>Pending</span></td>
-            <td>David Elson</td>
-            <td>+966 7857126532</td>
-            <td>judith403@gmail.com</td>
-            <td>Mar 12th, 2023</td>
+          
+            <td>{{ ChangeDateFormat(item.dateCreated) }}</td>
             <td><a  @click="() => { ChangePage({ fileName: ProjectTabs, key: 'ProjectTabs'}); 
               breadcrumbs.push({ label: 'member access' }) }" ><img src="http://localhost:8080/documents/d/guest/arrow-up" alt="img" /></a></td>
           </tr>

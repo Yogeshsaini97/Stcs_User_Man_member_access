@@ -11,7 +11,7 @@ const ProjectGetOneData = inject("ProjectGetOneData");
 const no_of_Issues = inject("no_of_Issues");
 const no_of_Risks = inject("no_of_Risks");
 const ProjectApiId = inject("ProjectApiId");
-const milestonesUrl = `${import.meta.env.VUE_APP_ROOT_API}/milestones/?p_auth=${Liferay.authToken}&filter=r_withMilestone_c_projecttId eq '${ProjectApiId.value}'`;
+const assignedtomeUrl = `${import.meta.env.VITE_APP_ROOT_API}/assignedtomes/?p_auth=${Liferay.authToken}`;
 
 </script>
 

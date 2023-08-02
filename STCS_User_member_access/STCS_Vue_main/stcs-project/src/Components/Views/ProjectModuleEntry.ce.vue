@@ -12,8 +12,8 @@ import HeaderList from '../Global/HeaderList.ce.vue';
 import MemberAccess from './MemberAccess/MemberAccess.vue';
 console.log("check")
 
-const hy=import.meta.env.VITE_MY_VARIABLE;
-console.log(import.meta.env.VITE_MY_VARIABLE)
+const hy=import.meta.env.VITE_APP_ROOT_API;
+console.log(import.meta.env.VITE_APP_ROOT_API)
 
 console.log(hy)
 
@@ -22,7 +22,7 @@ provide('datacheck', datacheck);
 
 console.log(datacheck)
 
-const projectHostUrl = `${import.meta.env.VUE_APP_ROOT_API}/projectts/?p_auth=${Liferay.authToken}`;
+const projectHostUrl = `${import.meta.env.VITE_APP_ROOT_API}/projectts/?p_auth=${Liferay.authToken}`;
 
 
 ///////////////

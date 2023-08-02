@@ -7,7 +7,8 @@ import ProjectListTable from "../Views/ProjectListTable.ce.vue";
 import RiskIssuesListTable from "../Views/RiskandIssues/RiskIssuesListTable.ce.vue";
 import ScheduleListTable from "../Views/Schedule/ScheduleListTable.ce.vue";
 import ProjectDocumentsListTable from "../Views/Documents/ProjectDocumentsListTable.ce.vue";
-import MemberAccessListTable from "../Views/MemberAccess/MemberAccessListTable.ce.vue";
+import MemberAccessListTableme from "../Views/MemberAccess/MemberAccessListTableme.ce.vue";
+import MemberAccessListTableRoles from "../Views/MemberAccess/MemberAccessListTableRoles.ce.vue";
 import ProjectInvoiceListTable from "../Views/Invoices/ProjectInvoiceListTable.ce.vue";
 
 import StakeholdersListTable from "../Views/Stakeholders/StakeholdersListTable.ce.vue";
@@ -56,6 +57,8 @@ props: {
     const openInvoiceList = hostUrl.split("/").includes("invoices");
     const openStakeholdersList = hostUrl.split("/").includes("stakeholders");
     const openMilestoneList = hostUrl.split("/").includes("milestones");
+    const openassignedtome = hostUrl.split("/").includes("assignedtomes");
+    const openassignedtoRole = hostUrl.split("/").includes("assignedtomyroles");
     const breadcrumbs = inject('breadcrumbs');
     const ChangePage = inject("ChangePage");
     const datacheck = inject('datacheck');
@@ -182,14 +185,17 @@ props: {
       openInvoiceList,
       openStakeholdersList,
       openMilestoneList,
+      openassignedtome,
+      openassignedtoRole,
       hostUrl,
       ProjectDocumentsListTable,
-      MemberAccessListTable,
+      MemberAccessListTableme,
       ProjectInvoiceListTable,
-      MilestonesListTable
+      MilestonesListTable,
+      MemberAccessListTableRoles
     };
   },
-  components: { HeaderList, ProjectListTable, RiskIssuesListTable, ScheduleListTable, ProjectDocumentsListTable, MemberAccessListTable, ProjectInvoiceListTable, StakeholdersListTable, MilestonesListTable }
+  components: { HeaderList, ProjectListTable, RiskIssuesListTable, ScheduleListTable, ProjectDocumentsListTable, MemberAccessListTableme, ProjectInvoiceListTable, StakeholdersListTable, MilestonesListTable,MemberAccessListTableRoles }
 };
 </script>
 
@@ -209,31 +215,15 @@ props: {
                 <!-- --------- table for  project list-  -->
                 <div >
 
-                  <div v-if="openprojectList">
-                   
-                    <ProjectListTable :hostUrl="hostUrl" />
+                 
+                
+                  <div v-if="openassignedtome" >
+                    <MemberAccessListTableme :hostUrl="hostUrl" />
                   </div>
-                  <div v-if="openRiskList">
-                    <RiskIssuesListTable :hostUrl="hostUrl" />
+                  <div v-if="openassignedtoRole" >
+                    <MemberAccessListTableRoles :hostUrl="hostUrl" />
                   </div>
-                   <div v-if="openScheduleList">
-                    <ScheduleListTable :hostUrl="hostUrl" />
-                   </div>
-                  <div v-if="openDocumentList">
-                    <ProjectDocumentsListTable :hostUrl="hostUrl" />
-                  </div>
-                  <div >
-                    <MemberAccessListTable :hostUrl="hostUrl" />
-                  </div>
-                  <div v-if="openInvoiceList">
-                    <ProjectInvoiceListTable :hostUrl="hostUrl" />
-                  </div>
-                  <div v-if="openStakeholdersList">
-                    <StakeholdersListTable :hostUrl="hostUrl" />
-                  </div>
-                  <div v-if="openMilestoneList">
-                    <MilestonesListTable :hostUrl="hostUrl" />
-                  </div>
+                 
                 </div>
  <!-- --------- table for  risk & Issues  list-  -->
               </div>

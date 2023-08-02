@@ -13,7 +13,7 @@ const no_of_Risks = inject("no_of_Risks");
 
 const ProjectApiId = inject("ProjectApiId");
 
-const documentsUrl = `${import.meta.env.VUE_APP_ROOT_API}/documents/?p_auth=${Liferay.authToken}&filter=r_withDocument_c_projecttId eq '${ProjectApiId.value}'`;
+const documentsUrl = `${import.meta.env.VITE_APP_ROOT_API}/documents/?p_auth=${Liferay.authToken}&filter=r_withDocument_c_projecttId eq '${ProjectApiId.value}'`;
 
 
 

@@ -10,7 +10,7 @@ const no_of_Issues = inject("no_of_Issues");
 const no_of_Risks = inject("no_of_Risks");
 const ProjectApiId = inject("ProjectApiId");
 
-const InvoicesUrl = `${import.meta.env.VUE_APP_ROOT_API}/invoices/?p_auth=${Liferay.authToken}&filter=r_withInvoice_c_projecttId eq '${ProjectApiId.value}'`;
+const InvoicesUrl = `${import.meta.env.VITE_APP_ROOT_API}/invoices/?p_auth=${Liferay.authToken}&filter=r_withInvoice_c_projecttId eq '${ProjectApiId.value}'`;
 
 
 

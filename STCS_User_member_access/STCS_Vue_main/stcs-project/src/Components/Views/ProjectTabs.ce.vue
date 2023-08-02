@@ -20,8 +20,8 @@ const no_of_Issues = ref(0);
 const fetchMultipleApi = async () => {
   try {
     const [response1, response2, response3, response4] = await Promise.all([
-      fetchData(`${import.meta.env.VUE_APP_ROOT_API}/projectts/${ProjectApiId.value}?p_auth=${Liferay.authToken}`),
-      fetchData(`${import.meta.env.VUE_APP_ROOT_API}/risksandissues/?p_auth=${Liferay.authToken}&filter=r_withRiskAndIssues_c_projecttId eq '${ProjectApiId.value}'`),
+      fetchData(`${import.meta.env.VITE_APP_ROOT_API}/projectts/${ProjectApiId.value}?p_auth=${Liferay.authToken}`),
+      fetchData(`${import.meta.env.VITE_APP_ROOT_API}/risksandissues/?p_auth=${Liferay.authToken}&filter=r_withRiskAndIssues_c_projecttId eq '${ProjectApiId.value}'`),
       // fetch('api3-url'),
       // fetch('api4-url')
     ]);
