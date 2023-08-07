@@ -41,15 +41,15 @@ const assignedtomeUrl = `${import.meta.env.VITE_APP_ROOT_API}/assignedtomes/?p_a
               <input type="search" class="form-control" value="Installation" placeholder="Project code / name" />
             </div>
             <div class="d-flex mb-3">
-              <button type="button" class="btn btn-light border-light-red rounded-15 p-3 mr-3"><img src="../assets/images/icon-trash.svg" alt="img" /></button>
+              <button type="button" class="btn btn-light border-light-red rounded-15 p-3 mr-3"><img src="" alt="img" /></button>
               <p class="mb-0 mt-1">Installation & device with contract<br /><span class="text-grey">STCS - 000938</span></p>
             </div>
             <div class="d-flex mb-3">
-              <button type="button" class="btn btn-light border-light-red rounded-15 p-3 mr-3"><img src="../assets/images/icon-trash.svg" alt="img" /></button>
+              <button type="button" class="btn btn-light border-light-red rounded-15 p-3 mr-3"><img src="" alt="img" /></button>
               <p class="mb-0 mt-1">Installation & device with contract<br /><span class="text-grey">STCS - 000938</span></p>
             </div>
             <div class="d-flex mb-3">
-              <button type="button" class="btn btn-light border-light-red rounded-15 p-3 mr-3"><img src="../assets/images/icon-trash.svg" alt="img" /></button>
+              <button type="button" class="btn btn-light border-light-red rounded-15 p-3 mr-3"><img src="" alt="img" /></button>
               <p class="mb-0 mt-1">Installation & device with contract<br /><span class="text-grey">STCS - 000938</span></p>
             </div>
           </div>
